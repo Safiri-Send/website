@@ -1,4 +1,4 @@
-/* @import "tailwindcss";
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -28,32 +28,4 @@
   .container-max-width {
     @apply max-w-7xl mx-auto;
   }
-} */
-@import "tailwindcss";
-
-:root {
-  --background: #000000;
-  --foreground: #171717;
-  --primary: #5505D6;
-  --secondary: #6EEF9C;
-}
-
-@theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-satoshi: var(--font-satoshi);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
- 
 }
