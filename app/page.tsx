@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import FeatureCard from './components/FeatureCard'
+import FeatureSection from './components/FeatureSection'
 
 export default function HomePage() {
   return (
     <main>
       <Navbar />
       <Hero />
-     <FeatureCard />
+     <FeatureSection />
     </main>
   )
 }

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import FeatureImg from '@/public/background-img.jpg'
 import { ArrowRight } from 'lucide-react'
 
-const SafiriMakesItEasy = () => {
+const FeatureSection = () => {
   const [activeButton, setActiveButton] = useState(0) // First button active by default
   const [isVisible, setIsVisible] = useState(false)
   const [loadedButtons, setLoadedButtons] = useState<number[]>([])
@@ -279,4 +279,4 @@ const SafiriMakesItEasy = () => {
   )
 }
 
-export default SafiriMakesItEasy
+export default FeatureSection
