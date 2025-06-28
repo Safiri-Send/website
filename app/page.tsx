@@ -1,14 +1,23 @@
-import React from "react";
+import React from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import FeatureSection from './components/FeatureSection'
 import DeviceCompatibility from "@/app/components/DeviceCompatibility";
 import GlobalBankAccount from "@/app/components/GlobalBankAccount";
 
-const page = () => {
+export default function HomePage() {
   return (
-    <div>
+    <main>
+      <Navbar />
+      <Hero />
+     <FeatureSection />
       <DeviceCompatibility />
+
       <GlobalBankAccount/>
     </div>
   );
 };
+    </main>
+  )
+}
 
-export default page;
