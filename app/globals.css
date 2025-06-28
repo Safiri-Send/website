@@ -1,28 +1,121 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --background: #000000;
-  --foreground: #171717;
-  --primary: #5505D6;
-  --secondary: #6EEF9C;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-satoshi: var(--font-satoshi);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar completely by default */
+  html, body {
+    font-family: 'Inter', sans-serif;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Hide scrollbar for webkit browsers completely */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  /* Only show scrollbar when actively scrolling */
+  html.scrolling,
+  body.scrolling {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(168, 85, 247, 0.8) transparent;
+  }
+
+  html.scrolling::-webkit-scrollbar,
+  body.scrolling::-webkit-scrollbar {
+    display: block;
+    width: 4px; /* Very thin */
+    background: transparent;
+  }
+
+  html.scrolling::-webkit-scrollbar-track,
+  body.scrolling::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  html.scrolling::-webkit-scrollbar-thumb,
+  body.scrolling::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.6);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  html.scrolling::-webkit-scrollbar-thumb:hover,
+  body.scrolling::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 85, 247, 0.9);
+    width: 6px;
+  }
+
+  /* Fallback: Force hide scrollbar with overflow */
+  .hide-scrollbar-completely {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar-completely::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 }
 
-body {
- 
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Additional utility classes for scrollbar */
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .show-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #a855f7 transparent;
+  }
+
+  .show-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .show-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .show-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #a855f7, #7c3aed);
+    border-radius: 10px;
+  }
 }
+
