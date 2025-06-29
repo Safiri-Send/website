@@ -5,6 +5,7 @@ import DeviceCompatibility from "@/app/components/DeviceCompatibility";
 import GlobalBankAccount from "@/app/components/GlobalBankAccount";
 import CTASection from "./components/Cta-section";
 import Footer from "./components/Footer";
+import WhyPeopleAreSwitching from "./components/WhyPeopleAreSwitching";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <FeatureSection />
       <DeviceCompatibility />
       <GlobalBankAccount />
+      <WhyPeopleAreSwitching />
       <CTASection />
       <Footer />
     </main>
