@@ -6,6 +6,7 @@ import GlobalBankAccount from "@/app/components/GlobalBankAccount";
 import CTASection from "./components/Cta-section";
 import Footer from "./components/Footer";
 import WhyPeopleAreSwitching from "./components/WhyPeopleAreSwitching";
+import WeWantYouToBeHappy from "./components/WeWantYouToBeHappy";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <DeviceCompatibility />
       <GlobalBankAccount />
       <WhyPeopleAreSwitching />
+      <WeWantYouToBeHappy />
       <CTASection />
       <Footer />
     </main>
