@@ -1,10 +1,12 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import FeatureSection from './components/FeatureSection'
-import DeviceCompatibility from "@/app/components/DeviceCompatibility"
-import GlobalBankAccount from "@/app/components/GlobalBankAccount"
-import CTASection from './components/Cta-section'
-import Footer from "./components/Footer"
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import FeatureSection from "./components/FeatureSection";
+import DeviceCompatibility from "@/app/components/DeviceCompatibility";
+import GlobalBankAccount from "@/app/components/GlobalBankAccount";
+import CTASection from "./components/Cta-section";
+import Footer from "./components/Footer";
+import WhyPeopleAreSwitching from "./components/WhyPeopleAreSwitching";
+import WeWantYouToBeHappy from "./components/WeWantYouToBeHappy";
 
 export default function HomePage() {
   return (
@@ -14,9 +16,10 @@ export default function HomePage() {
       <FeatureSection />
       <DeviceCompatibility />
       <GlobalBankAccount />
-       <CTASection/>
-       <Footer/>
+      <WhyPeopleAreSwitching />
+      <WeWantYouToBeHappy />
+      <CTASection />
+      <Footer />
     </main>
-  )
+  );
 }
-
