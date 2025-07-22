@@ -1,22 +1,28 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import FeatureSection from './components/FeatureSection'
-import DeviceCompatibility from "@/app/components/DeviceCompatibility"
-import GlobalBankAccount from "@/app/components/GlobalBankAccount"
-import CTASection from './components/Cta-section'
-import Footer from "./components/Footer"
+import Navbar from "./components/(website)/Navbar";
+import Hero from "./components/(website)/Hero";
+import FeatureSection from "./components/(website)/FeatureSection";
+import DeviceCompatibility from "@/app/components/(website)/DeviceCompatibility";
+import GlobalBankAccount from "@/app/components/(website)/GlobalBankAccount";
+import CTASection from "./components/(website)/Cta-section";
+import PeopleSwitching from "./components/(website)/PeopleSwitching";
+import MoneySafe from "./components/(website)/MoneySafe";
+import Footer from "./components/(website)/Footer";
+import WaitlistPage from "./components/(waitlist)/Waitlist";
 
 export default function HomePage() {
   return (
     <main>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <FeatureSection />
       <DeviceCompatibility />
       <GlobalBankAccount />
-       <CTASection/>
-       <Footer/>
-    </main>
-  )
-}
+      <CTASection />
+      <PeopleSwitching />
+      <MoneySafe />
+      <Footer /> */}
 
+      <WaitlistPage />
+    </main>
+  );
+}

@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   keywords: 'money transfer, international payments, USSD, remittance, Africa',
   authors: [{ name: 'Safiri' }],
   viewport: 'width=device-width, initial-scale=1',
+
+   icons: {
+    icon: '/Logo-icon.svg',
+    shortcut: '/Logo-icon.svg',
+    apple: '/Logo-icon.svg',
+  },
 }
 
 export default function RootLayout({
