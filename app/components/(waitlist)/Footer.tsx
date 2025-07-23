@@ -4,6 +4,9 @@ import Image from 'next/image';
 import Logo from "@/public/Logo-black.svg";
 
 const WaitlistFooter = () => {
+  const handleTesterClick = () => {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSc5de7cuwXhG6qvxaIRCnnXxgIlD5EvLMXlqHbz6vI-MDBJCg/viewform?usp=dialog', '_blank');
+  };
  
   return (
     <footer className="bg-white px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -53,7 +56,8 @@ const WaitlistFooter = () => {
           <div className="lg:col-span-2 lg:text-right">
             <div className="flex flex-col lg:items-end space-y-4">
               <button 
-                className="text-white font-medium px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg w-fit"
+                onClick={handleTesterClick}
+                className="text-white font-medium px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg w-fit cursor-pointer"
                 style={{
                   background: 'linear-gradient(135deg, #CCE2F0 0%, #2C6CFF 100%)'
                 }}

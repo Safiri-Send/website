@@ -7,6 +7,10 @@ import Logo from "@/public/Logo.svg";
 const WaitlistNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleTesterClick = () => {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSc5de7cuwXhG6qvxaIRCnnXxgIlD5EvLMXlqHbz6vI-MDBJCg/viewform?usp=dialog', '_blank');
+  };
+
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent px-4 sm:px-6 lg:px-8 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -42,7 +46,8 @@ const WaitlistNavbar = () => {
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
           <button 
-                className="text-white font-medium px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg w-fit"
+                onClick={handleTesterClick}
+                className="text-white font-medium px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg w-fit cursor-pointer"
                 style={{
                   background: 'linear-gradient(135deg, #CCE2F0 0%, #2C6CFF 100%)'
                 }}
@@ -106,7 +111,10 @@ const WaitlistNavbar = () => {
             </a>
             
             <div className="pt-4 border-t border-gray-300 space-y-3">
-              <button className="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors">
+              <button 
+                onClick={handleTesterClick}
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors cursor-pointer"
+              >
                 Be an early tester
               </button>
               <button className="w-full border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors">

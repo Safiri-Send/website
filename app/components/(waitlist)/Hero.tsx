@@ -57,7 +57,7 @@ const WaitlistHero = () => {
             </p>
 
             {/* Early Tester Form */}
-            <div className="bg-white p-6 rounded-xl shadow-lg border max-w-md">
+            {/* <div className="bg-white p-6 rounded-xl shadow-lg border max-w-md">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">Fill to be an early tester</h3>
               <div className="space-y-4">
                 <div>
@@ -97,7 +97,7 @@ const WaitlistHero = () => {
                   <span>Sign in with Google</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
           
           {/* Right side - Empty space (image is background) */}
