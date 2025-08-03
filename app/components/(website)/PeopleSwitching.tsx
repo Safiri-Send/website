@@ -1,37 +1,43 @@
 "use client"
 import React from 'react';
+import Image from 'next/image';
+import Transparent from "@/public/website/transparent.png"
+import FairFees from "@/public/website/fairfees.png"
+import CryptoFree from "@/public/website/cyptofree.png"
+import NoApp from "@/public/website/noapp.png"
+import Instant from "@/public/website/instant.png"
 
 const SwitchingCarousel = () => {
   const cards = [
     {
       category: "USSD PAYMENTS",
       title: "Fair Fees",
-      description: "Send and receive international payment wherever you are using ussd codes.",
-      image: "💰"
+      description: "Enjoy transparent, competitive rates for international transfers. No hidden charges or surprise fees - just straightforward pricing that puts more money in your recipient's hands.",
+      image: FairFees
     },
     {
       category: "USSD PAYMENTS", 
       title: "Instant Delivery",
-      description: "Send and receive international payment wherever you are using ussd codes.",
-      image: "⚡"
+      description: "Your money moves at the speed of trust. Send international payments that arrive in seconds, not days, using simple USSD codes from any mobile phone.",
+      image: Instant
     },
     {
       category: "USSD PAYMENTS",
       title: "No Apps Needed", 
-      description: "Send and receive international payment wherever you are using ussd codes.",
-      image: "📱"
+      description: "Access powerful payment features using any mobile phone - even basic models. Just dial a simple code and send money internationally without downloading apps or needing internet connectivity.",
+      image: NoApp
     },
     {
       category: "USSD PAYMENTS",
       title: "Crypto-Free Experience",
-      description: "Send and receive international payment wherever you are using ussd codes.",
-      image: "🔒"
+      description: "Send traditional currency transfers without the complexity of cryptocurrency. Simple, familiar transactions that work with regular money - no blockchain knowledge required.",
+      image: CryptoFree
     },
     {
       category: "USSD PAYMENTS",
       title: "Fully Transparent",
-      description: "Send and receive international payment wherever you are using ussd codes.",
-      image: "👁️"
+      description: "Track every step of your transfer with complete visibility. No mystery fees, hidden processes, or unclear timelines - see exactly where your money is and when it will arrive.",
+      image: Transparent
     }
   ];
 
@@ -45,10 +51,13 @@ const SwitchingCarousel = () => {
       style={{ height: '600px', width: '380px' }}
     >
       {/* Large Image/Icon Section - Takes most of the card */}
-      <div className="flex-1 bg-black m-4 mb-2 rounded-xl flex items-center justify-center">
-        <div className="text-6xl opacity-50">
-          {card.image}
-        </div>
+      <div className="flex-1 m-4 mb-2 rounded-xl overflow-hidden relative">
+        <Image
+          src={card.image}
+          alt={card.title}
+          fill
+          className="object-cover"
+        />
       </div>
       
       {/* Text Content at Bottom */}
