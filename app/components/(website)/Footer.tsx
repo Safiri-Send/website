@@ -1,10 +1,11 @@
 "use client"
 import React from 'react';
-import { Facebook, Instagram, Twitter, Linkedin, Music } from 'lucide-react';
+import { Facebook, Instagram, Linkedin} from 'lucide-react';
+import { FaXTwitter, FaTiktok  } from "react-icons/fa6";
 import Image from 'next/image';
-import Logo from "@/public/Logo-gray.svg"
+import Logo from "@/public/Logo-black.svg"
 import Send from "@/public/send.svg"
-import LanguagePicker from './LanguagePicker' 
+// import LanguagePicker from './LanguagePicker' 
 
 const Footer: React.FC = () => {
 
@@ -33,8 +34,8 @@ const Footer: React.FC = () => {
                 in under 2 minutes.
               </h2>
               
-              <button className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
-                Try it out— It's free
+              <button className="bg-[#753DEF] hover:from-purple-600 hover:to-purple-700 text-white font-medium px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+               Dial *347*771#
               </button>
             </div>
           </div>
@@ -68,11 +69,11 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4 sm:justify-center lg:justify-start">
             {/* Logo */}
             <div className="flex items-center">
-              <Image src={Logo} width={80} height={32} alt='Safiri Logo' className='w-16 sm:w-20'/>
+              <Image src={Logo} width={90} height={32} alt='Safiri Logo' className='w-20 sm:w-20 lg:w-24'/>
             </div>
             
             {/* Language Selector */}
-            <LanguagePicker variant="footer" />
+            {/* <LanguagePicker variant="footer" /> */}
           </div>
 
           {/* Right section - Email and Social Icons */}
@@ -102,11 +103,12 @@ const Footer: React.FC = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
-                href="#" 
+                href="https://x.com/safiri_send"
+                target='_blank' 
                 className="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-1"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <FaXTwitter className="w-5 h-5" />
               </a>
               <a 
                 href="#" 
@@ -120,7 +122,7 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-1"
                 aria-label="TikTok"
               >
-                <Music className="w-5 h-5" />
+                <FaTiktok  className="w-5 h-5" />
               </a>
             </div>
           </div>

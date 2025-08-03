@@ -18,9 +18,9 @@ const CTASection: React.FC = () => {
         
         <button
           onClick={handleButtonClick}
-          className="bg-gradient-to-r from-[#d5cff0]  to-[#753DEF] hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+          className="bg-[#753DEF] hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
         >
-          Try it out—It&#39;s free
+          Dial *347*771#
         </button>
       </div>
     </section>

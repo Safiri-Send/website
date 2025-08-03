@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Logo from "@/public/Logo.svg";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import LanguagePicker from "./LanguagePicker";
+// import LanguagePicker from "./LanguagePicker";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
               className="h-8 w-auto"
               priority
             />
-            <LanguagePicker variant="navbar" />
+            {/* <LanguagePicker variant="navbar" /> */}
           </div>
 
           {/* Desktop Navigation */}
@@ -46,14 +46,14 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* <div className="hidden md:flex items-center space-x-4">
             <button className="text-white/90 hover:text-white transition-colors duration-200 font-medium px-4 py-2">
               Log in
             </button>
-            <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium px-6 py-2 rounded-lg transition-all duration-200 border border-white/20">
+            <button className="bg-[#2C6CFF] backdrop-blur-sm hover:bg-white/30 text-white font-medium px-6 py-2 rounded-lg transition-all duration-200 border border-white/20">
               Sign up for free
             </button>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
           <div className="md:hidden">

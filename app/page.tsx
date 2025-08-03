@@ -1,5 +1,5 @@
 import Website from "./components/(website)/Website"
-import WaitlistPage from "./components/(waitlist)/Waitlist";
+// import WaitlistPage from "./components/(waitlist)/Waitlist";
 
 export default function HomePage() {
   return (
