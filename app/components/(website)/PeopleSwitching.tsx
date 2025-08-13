@@ -1,123 +1,181 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Transparent from "@/public/website/transparent.png"
 import FairFees from "@/public/website/fairfees.png"
 import CryptoFree from "@/public/website/cyptofree.png"
 import NoApp from "@/public/website/noapp.png"
 import Instant from "@/public/website/instant.png"
+import Frame23 from "@/public/Frame24.png"
 
 const SwitchingCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const cards = [
     {
       category: "USSD PAYMENTS",
       title: "Fair Fees",
       description: "Enjoy transparent, competitive rates for international transfers. No hidden charges or surprise fees - just straightforward pricing that puts more money in your recipient's hands.",
-      image: FairFees
+      image: FairFees,
+      bgColor: "bg-green-500"
     },
     {
       category: "USSD PAYMENTS", 
       title: "Instant Delivery",
       description: "Your money moves at the speed of trust. Send international payments that arrive in seconds, not days, using simple USSD codes from any mobile phone.",
-      image: Instant
+      image: Instant,
+      bgColor: "bg-blue-900"
     },
     {
       category: "USSD PAYMENTS",
       title: "No Apps Needed", 
       description: "Access powerful payment features using any mobile phone - even basic models. Just dial a simple code and send money internationally without downloading apps or needing internet connectivity.",
-      image: NoApp
+      image: NoApp,
+      bgColor: "bg-gray-400"
     },
     {
       category: "USSD PAYMENTS",
       title: "Crypto-Free Experience",
       description: "Send traditional currency transfers without the complexity of cryptocurrency. Simple, familiar transactions that work with regular money - no blockchain knowledge required.",
-      image: CryptoFree
+      image: CryptoFree,
+      bgColor: "bg-purple-600"
     },
     {
       category: "USSD PAYMENTS",
       title: "Fully Transparent",
       description: "Track every step of your transfer with complete visibility. No mystery fees, hidden processes, or unclear timelines - see exactly where your money is and when it will arrive.",
-      image: Transparent
+      image: Transparent,
+      bgColor: "bg-blue-600"
     }
   ];
 
-  // Duplicate cards for seamless infinite scroll
-  const duplicatedCards = [...cards, ...cards, ...cards];
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+  };
 
-  const CardComponent = ({ card, index }: { card: typeof cards[0], index: number }) => (
-    <div
-      key={`card-${index}`}
-      className="bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-800 flex flex-col hover:bg-gray-700/30 transition-colors duration-300 overflow-hidden flex-shrink-0"
-      style={{ height: '600px', width: '380px' }}
-    >
-      {/* Large Image/Icon Section - Takes most of the card */}
-      <div className="flex-1 m-4 mb-2 rounded-xl overflow-hidden relative">
-        <Image
-          src={card.image}
-          alt={card.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      
-      {/* Text Content at Bottom */}
-      <div className="p-4 pt-2">
-        <div className="text-xs font-semibold text-blue-400 mb-1 tracking-wider">
-          {card.category}
-        </div>
-        <h3 className="text-lg font-bold mb-2 text-white">
-          {card.title}
-        </h3>
-        <p className="text-gray-300 text-xs leading-relaxed">
-          {card.description}
-        </p>
-      </div>
-    </div>
-  );
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+  };
+
+  const getVisibleCards = () => {
+    const visibleCards = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % cards.length;
+      visibleCards.push({ ...cards[index], originalIndex: index });
+    }
+    return visibleCards;
+  };
 
   return (
-    <section className="bg-black text-white py-16 lg:my-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Why People Are<br />
-            Switching to Safiri
-          </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Skip the long queues and use a Fairer, faster solution made for real people.
-          </p>
-        </div>
+    <section className="relative overflow-hidden flex items-center justify-center" style={{ height: '916px' }}>
+      {/* SVG Background */}
+      <div className="absolute inset-0">
+        <Image
+          src={Frame23}
+          alt="Background pattern"
+          fill
+          className="object-contain"
+          priority
+        />
       </div>
 
-      {/* Infinite Scrolling Container */}
-      <div className="relative overflow-hidden">
-        <div className="flex gap-6 animate-scroll-left">
-          {duplicatedCards.map((card, index) => (
-            <CardComponent key={`card-${index}`} card={card} index={index} />
-          ))}
+      <div className="mx-10 px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
+        <div className="grid lg:grid-cols-4 gap-12 items-start mb-12">
+          {/* Left Side - Title and Description (1/4 width) */}
+          <div className="lg:col-span-1">
+            <div className="inline-block bg-gray-700/50 px-3 py-1 rounded-full text-xs font-semibold text-gray-300 mb-4 tracking-wider">
+              Feature
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-white">
+              Why People Are<br />
+              Switching to Safiri
+            </h2>
+            <p className="text-gray-300 text-base mb-8 leading-relaxed">
+              Skip the long queues and use a Fairer, faster solution made for real people.
+            </p>
+            
+            {/* See All Services Button and Navigation */}
+            <div className="flex items-center space-x-4">
+              <button className="bg-[#5E19B3] hover:bg-[#4A1590] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center space-x-2">
+                <span>See All Services</span>
+                <span>→</span>
+              </button>
+              
+              {/* Navigation Controls beside button */}
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={prevSlide}
+                  className="w-10 h-10 bg-gray-700/50 hover:bg-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 border border-gray-600"
+                >
+                  <ChevronLeft className="w-5 h-5 text-white" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="w-10 h-10 bg-gray-700/50 hover:bg-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 border border-gray-600"
+                >
+                  <ChevronRight className="w-5 h-5 text-white" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Cards (3/4 width) */}
+          <div className="lg:col-span-3">
+            {/* Cards Section */}
+            <div className="flex gap-6 justify-start">
+              {getVisibleCards().map((card, index) => (
+                <div
+                  key={`${card.originalIndex}-${currentIndex}`}
+                  className="relative rounded-3xl overflow-hidden border-4 border-white shadow-lg transition-all duration-500"
+                  style={{ width: '350px', height: '520px' }}
+                >
+                  {/* Background Image Card */}
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* White Content Card Overlay */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-white text-black p-4 rounded-2xl shadow-lg">
+                    {/* Category with background color - no dotted lines */}
+                    <div className="flex justify-center mb-3">
+                      <div className="text-xs font-semibold text-black px-3 py-1 rounded tracking-wider" style={{ backgroundColor: '#753DEF1A' }}>
+                        {card.category}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold mb-2 text-gray-900">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {cards.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? 'bg-white w-6' : 'bg-gray-500'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${(380 + 24) * cards.length}px);
-          }
-        }
-        
-        .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
-          width: ${(380 + 24) * duplicatedCards.length}px;
-        }
-        
-        .animate-scroll-left:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 };

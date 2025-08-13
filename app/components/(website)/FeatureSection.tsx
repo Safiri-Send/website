@@ -79,8 +79,7 @@ const FeatureSection = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Safiri makes <br />
-              it easy
+              Safiri makes it easy
             </h2>
           </div>
 
