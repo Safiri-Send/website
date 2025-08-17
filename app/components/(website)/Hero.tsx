@@ -53,28 +53,34 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative pt-28 md:min-h-screen flex items-center overflow-hidden">
+      <section className="relative pt-28 md:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#5E19B3] via-purple-600 to-blue-700">
         {/* Background Image with optimizations */}
         <div className="hidden md:flex absolute inset-0">
+          {/* Improved blur placeholder with better base64 and matching colors */}
           <Image
             src={Background}
             alt="Hero background - Person using mobile phone for money transfer"
             fill
-            className={`object-cover object-center transition-opacity duration-700 ${
+            className={`object-cover object-center transition-opacity duration-500 ease-out ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
             priority
-            quality={85}
+            quality={90}
             sizes="100vw"
             onLoad={() => setImageLoaded(true)}
             placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBobHB0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/2gAMAwEAAhEDEQA/AJvBYONMlJDMF25+hoa"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBobHB0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/2gAMAwEAAhEDEQA/AJvBYONMlJDMF25+hoa6"
           />
 
-          {/* Enhanced dark overlay with gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/50"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          {/* Enhanced dark overlay with gradient - always visible */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/50 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10"></div>
         </div>
+
+        {/* Fallback gradient background for when image hasn't loaded */}
+        {!imageLoaded && (
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#5E19B3] via-purple-700 to-blue-800"></div>
+        )}
 
         {/* Decorative Spiral positioned at bottom right */}
         <div className="absolute bottom-8 right-8 opacity-30 pointer-events-none z-20">
@@ -89,10 +95,10 @@ const Hero = () => {
         </div>
 
         {/* Additional decorative elements */}
-        <div className="absolute left-0 bottom-0 w-32 h-32 bg-gradient-to-tr from-[#5E19B3]/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute right-1/4 top-1/4 w-24 h-24 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-full blur-2xl"></div>
+        <div className="absolute left-0 bottom-0 w-32 h-32 bg-gradient-to-tr from-[#5E19B3]/20 to-transparent rounded-full blur-3xl z-10"></div>
+        <div className="absolute right-1/4 top-1/4 w-24 h-24 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-full blur-2xl z-10"></div>
 
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 w-full md:mx-28">
+        <div className="relative z-20 px-4 sm:px-6 lg:px-8 w-full md:mx-28">
           <div className="flex justify-start">
             <div className="w-full md:max-w-2xl">
               {/* Main Content */}
@@ -132,15 +138,20 @@ const Hero = () => {
                   </button>
                 </div>
 
-                {/* Mobile Background image below buttons */}
+                {/* Mobile Background image below buttons - optimized */}
                 <div className="block md:hidden mt-7">
-                  <Image
-                    src={Background}
-                    alt="Safiri mobile background"
-                    className="w-full rounded-[15px] object-cover"
-                    style={{ height: 300 }}
-                    priority={false}
-                  />
+                  <div className="relative overflow-hidden rounded-[15px] bg-gradient-to-br from-[#5E19B3] to-purple-700" style={{ height: 300 }}>
+                    <Image
+                      src={Background}
+                      alt="Safiri mobile background"
+                      fill
+                      className="object-cover transition-opacity duration-500"
+                      sizes="(max-width: 768px) 100vw, 0px"
+                      quality={85}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEDEQA/AJvBYONMlJDMF25+hoa6"
+                    />
+                  </div>
                 </div>
 
                 {/* Trust indicators */}
