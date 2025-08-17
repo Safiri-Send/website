@@ -23,11 +23,11 @@ const YourMoneyIsSafe = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-8 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+        <div className="mb-6 md:mb-12">
+          <h2 className="text-2xl text-center md:text-left md:text-3xl lg:text-4xl font-bold text-gray-900">
             Your Money Is Safe
           </h2>
         </div>
@@ -61,7 +61,7 @@ const YourMoneyIsSafe = () => {
             {/* Right Image Card */}
             <div className="flex justify-center lg:justify-end">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
+                <div className="w-full h-80 md:w-96 md:h-96 flex items-center justify-center">
                   <Image
                     src={moneyBag}
                     alt="Money bag with coins - Your money is safe with Safiri"

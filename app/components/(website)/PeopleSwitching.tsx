@@ -59,6 +59,12 @@ const SwitchingCarousel = () => {
   };
 
   const getVisibleCards = () => {
+    // On mobile (md breakpoint and below), show only one card
+    // On larger screens, show three cards
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (isMobile) {
+      return [{ ...cards[currentIndex], originalIndex: currentIndex }];
+    }
     const visibleCards = [];
     for (let i = 0; i < 3; i++) {
       const index = (currentIndex + i) % cards.length;
@@ -68,21 +74,21 @@ const SwitchingCarousel = () => {
   };
 
   return (
-    <section className="relative overflow-hidden flex items-center justify-center" style={{ height: '916px' }}>
+    <section className="relative overflow-hidden flex items-center justify-center h-fit md:h-[916px]">
       {/* SVG Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-center justify-center h-full">
         <Image
           src={Frame23}
           alt="Background pattern"
           fill
-          className="object-contain"
+          className=""
           priority
         />
       </div>
 
-      <div className="mx-10 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="mx-0 md:mx-10 px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="grid lg:grid-cols-4 gap-12 items-start mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start mb-12 pt-4 md:pt-0">
           {/* Left Side - Title and Description (1/4 width) */}
           <div className="lg:col-span-1">
             <div className="inline-block bg-gray-700/50 px-3 py-1 rounded-full text-xs font-semibold text-gray-300 mb-4 tracking-wider">
@@ -97,8 +103,8 @@ const SwitchingCarousel = () => {
             </p>
             
             {/* See All Services Button and Navigation */}
-            <div className="flex items-center space-x-4">
-              <button className="bg-[#5E19B3] hover:bg-[#4A1590] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center space-x-2">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <button className="bg-[#5E19B3] hover:bg-[#4A1590] w-fit text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center space-x-2">
                 <span>See All Services</span>
                 <span>→</span>
               </button>
@@ -124,12 +130,11 @@ const SwitchingCarousel = () => {
           {/* Right Side - Cards (3/4 width) */}
           <div className="lg:col-span-3">
             {/* Cards Section */}
-            <div className="flex gap-6 justify-start">
+            <div className="flex flex-col md:flex-row gap-6 justify-center md:justify-start">
               {getVisibleCards().map((card, index) => (
                 <div
                   key={`${card.originalIndex}-${currentIndex}`}
-                  className="relative rounded-3xl overflow-hidden border-4 border-white shadow-lg transition-all duration-500"
-                  style={{ width: '350px', height: '520px' }}
+                  className="relative rounded-3xl overflow-hidden border-4 border-white shadow-lg transition-all duration-500 w-full md:w-[350px] h-[520px]"
                 >
                   {/* Background Image Card */}
                   <div className="relative w-full h-full">
