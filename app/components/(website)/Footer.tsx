@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <div className="relative mb-8 sm:mb-12">
           {/* Dark background card with smartphone image */}
           <div className="bg-[#1B1F28] rounded-3xl overflow-hidden shadow-2xl">
-             <div className="relative flex justify-center lg:justify-between">
+             <div className="relative flex justify-center lg:justify-between flex-col">
               {/* Left side - Smartphone Image */}
               <div className="relative p-8 lg:p-12">
                 {/* Blue gradient background behind phone - extended to touch bottom */}

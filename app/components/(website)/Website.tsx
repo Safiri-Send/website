@@ -17,9 +17,9 @@ export default function HomePage() {
       <DeviceCompatibility />
     
       <CTASection />
-      {/* <PeopleSwitching /> */}
-      {/* <MoneySafe /> */}
-      {/* <Footer /> */}
+      <PeopleSwitching />
+      <MoneySafe />
+      <Footer />
     </main>
   );
 }
