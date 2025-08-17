@@ -127,7 +127,7 @@ const Hero = () => {
                       <span className="hidden md:block">
                         <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                       </span>
-                      <span>Learn about USSD</span>
+                      <span>Watch Demo</span>
                     </span>
                   </button>
                 </div>

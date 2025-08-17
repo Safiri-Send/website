@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Transparent from "@/public/website/transparent.png"
@@ -11,6 +11,7 @@ import Frame23 from "@/public/Frame24.png"
 
 const SwitchingCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const cards = [
     {
@@ -50,6 +51,22 @@ const SwitchingCarousel = () => {
     }
   ];
 
+  // Handle responsive behavior with useEffect
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Set initial value
+    checkIsMobile();
+
+    // Add event listener for resize
+    window.addEventListener('resize', checkIsMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
   };
@@ -59,9 +76,7 @@ const SwitchingCarousel = () => {
   };
 
   const getVisibleCards = () => {
-    // On mobile (md breakpoint and below), show only one card
-    // On larger screens, show three cards
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    // Use state instead of direct window check
     if (isMobile) {
       return [{ ...cards[currentIndex], originalIndex: currentIndex }];
     }

@@ -101,7 +101,7 @@ const Navbar = () => {
                 className="bg-[#5E19B3] hover:bg-[#4A1590] text-white font-medium px-6 py-2.5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center space-x-2"
               >
                 <Play className="w-4 h-4" />
-                <span>Learn More</span>
+                <span>Watch Demo</span>
               </button>
             </div>
 
@@ -152,7 +152,7 @@ const Navbar = () => {
                     className="w-full bg-[#5E19B3] hover:bg-[#4A1590] text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-lg flex items-center justify-center space-x-2"
                   >
                     <Play className="w-4 h-4" />
-                    <span>Learn More</span>
+                    <span>Watch Demo</span>
                   </button>
                 </div>
               </div>

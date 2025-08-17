@@ -93,9 +93,9 @@ export default function DeviceCompatibility() {
             </div>
 
             {/* Right Content - Nokia Phone and floating elements */}
-            <div className="flex items-center justify-end min-w-[260px] relative h-[300px] overflow-visible">
+            <div className="flex items-center justify-end min-w-[260px] relative h-[350px] overflow-visible">
               {/* Nokia Phone - Main centerpiece with white background, extending beyond card */}
-              <div className="absolute right-0 md:bottom-[-40px] z-10 bg-white px-4 rounded-xl shadow-lg">
+              <div className="absolute right-0 md:bottom-[10px] z-10 bg-white px-4 rounded-xl shadow-lg">
                 <Image
                   src={nokia}
                   alt="Nokia Phone"
